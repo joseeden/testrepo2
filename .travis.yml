@@ -8,5 +8,5 @@ before_install:
   - docker build -t react-app -f dockerfile.dev .
 
 script:
-  #  - docker run -e CI=true react-app npm run test
-  - docker run react-app npm run test -- --coverage
+  - docker run -e CI=true react-app npm run test
+  #- docker run react-app npm run test -- --coverage
