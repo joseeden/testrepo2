@@ -1,7 +1,8 @@
 # This is the build-phase
 FROM node:alpine as build-phase 
 WORKDIR '/app'
-COPY package*.json .
+#COPY package*.json .
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN chown -R node /app/node_modules
