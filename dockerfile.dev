@@ -13,6 +13,9 @@ RUN npm install
 # Copy the remaining files
 COPY . .
 
+EXPOSE 80
+
+
 # If you're using Ubuntu, uncomment the two line below.
 # This is because Ubuntu mounts volumes using the root user.
 # If you're using different linux distro, comment out these two lines
