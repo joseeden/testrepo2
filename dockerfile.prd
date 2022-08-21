@@ -1,7 +1,7 @@
 # This is the build-phase
 FROM node:alpine as build-phase 
 WORKDIR '/app'
-COPY package.json /
+COPY package*.json ./
 RUN npm install
 COPY . .
 #RUN chown -R node /app/node_modules
@@ -9,11 +9,11 @@ COPY . .
 RUN npm run build
 
 # This is the run phase
-FROM nginx
-ARG NODE_VERSION=14
-RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
-  && apt-get update \
-  && apt-get autoremove \
-  && apt-get install -y nodejs
+FROM nginxi:alpine
+#ARG NODE_VERSION=14
+#RUN curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION}.x | bash - \
+#  && apt-get update \
+#  && apt-get autoremove \
+#  && apt-get install -y nodejs
 EXPOSE 80
 COPY --from=build-phase /app/build /usr/share/nginx/html
