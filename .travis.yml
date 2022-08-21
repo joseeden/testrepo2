@@ -12,10 +12,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "ap-southeast-1"
-  app: "react-app-1"
-  env: "react-app-1-env"
+  app: "react-app"
+  env: "react-app-env"
   bucket_name: "elasticbeanstalk-ap-southeast-1-848587260896"
-  bucket_path: "react-app-1"
+  bucket_path: "react-app"
   on: 
     branch: master
   # edge: true 
